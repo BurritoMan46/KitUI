@@ -27,7 +27,7 @@ class Main extends PluginBase implements Listener {
 	
     public function onEnable(){
       @mkdir($this->getDataFolder()."timer/");
-      $this->getServer()->getLogger()->notice("[KitUI] Enabled! - By Infernus101");
+      $this->getServer()->getLogger()->notice("[KitUI] has been Enabled!");
       $this->configFixer();
       $files = array("kits.yml","config.yml");
       foreach($files as $file){
@@ -43,7 +43,7 @@ class Main extends PluginBase implements Listener {
       $this->getServer()->getScheduler()->scheduleDelayedRepeatingTask(new CoolDownTask($this), 1200, 1200);
       $this->piggyEnchants = $this->getServer()->getPluginManager()->getPlugin("PiggyCustomEnchants");
 	if($this->piggyEnchants !== null){
-            $this->getServer()->getLogger()->info(TextFormat::GREEN . "[KitUI] Using PiggyCustomEnchants!");
+            $this->getServer()->getLogger()->info(TextFormat::GREEN . "[KitUI] Using CustomEnchants!");
         }
       $allKits = yaml_parse_file($this->getDataFolder()."kits.yml");
       foreach($allKits as $name => $data){
@@ -55,7 +55,7 @@ class Main extends PluginBase implements Listener {
       foreach($this->kits as $kit){
         $kit->save();
       }
-      $this->getServer()->getLogger()->notice("[KitUI] Disabled! - By Infernus101");
+      $this->getServer()->getLogger()->notice("[KitUI] has been Disabled");
     }
 	
 	public function onCommand(CommandSender $sender, Command $cmd, String $label, array $args): bool{
@@ -70,7 +70,7 @@ class Main extends PluginBase implements Listener {
 				return false;
 			}
 			if(isset($args[0])){
-				$sender->sendMessage(TextFormat::GREEN."About:\nKit UI by Infernus101! github.com/Infernus101/KitUI\n".TextFormat::AQUA."Servers - FallenTech.tk | CounterTech.tk 19132");
+				$sender->sendMessage(TextFormat::GREEN."About:\nKit UI was developed by §4MangoTheDev §amade for §4Aversion§a.");
 				return false;
 			}
                 $handler = new Handler();
